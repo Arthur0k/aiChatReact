@@ -1,0 +1,40 @@
+.headers {
+  display: flex;
+  height: 44px;
+  :global {
+    .left {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 44px;
+      .back-icon {
+        width: 18px;
+        height: 18px;
+        background: url('~@/assets/images/chatRoom/navback.png') center no-repeat;
+        background-size: cover;
+      }
+    }
+    .title {
+      flex: 6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 44px;
+      color: #4a4a4a;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .right {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 44px;
+      .right-icon {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+}
