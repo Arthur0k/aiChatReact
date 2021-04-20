@@ -5,6 +5,7 @@ import px2rem from 'postcss-plugin-px2rem';
 export default defineConfig({
   // base: '',
   // publicPath: '/static/',
+  title: 'hi',
   hash: true,
   history: {
     type: 'hash',
@@ -16,10 +17,18 @@ export default defineConfig({
   fastRefresh: {},
   alias: {
     // components: '@/components'
+    utils: '@/common/utils',
+    context: '@/common/utils/context'
   },
   extraPostCSSPlugins: [
     px2rem({
       rootValue: 16,
     })
   ],
+  dva: {
+    hmr: true,
+  },
+  antd: {
+    compact: true
+  }
 });

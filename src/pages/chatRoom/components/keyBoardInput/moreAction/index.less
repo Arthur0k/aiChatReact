@@ -1,0 +1,44 @@
+@img_chatRoom: '~@/assets/images/chatRoom';
+
+.moreAction {
+  display: flex;
+  padding: 25px;
+  height: 154px;
+  background-color: #f9f9f9;
+  :global {
+    .upload,
+    .photo {
+      height: 90px;
+      .text {
+        margin-top: 8px;
+        height: 17px;
+        line-height: 17px;
+        color: #4a4a4a;
+        font-size: 12px;
+        text-align: center;
+      }
+    }
+    .photo {
+      margin-left: 21px;
+    }
+    .photoCon,
+    .uploadCon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 65px;
+      height: 65px;
+      background-color: #fff;
+    }
+    .photoIcon {
+      width: 35px;
+      height: 35px;
+      background: url('@{img_chatRoom}/camera.png') center/cover;
+    }
+    .uploadIcon {
+      width: 35px;
+      height: 35px;
+      background: url('@{img_chatRoom}/pic.png') center/cover;
+    }
+  }
+}

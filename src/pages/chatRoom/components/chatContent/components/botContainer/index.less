@@ -1,0 +1,40 @@
+@img_chatRoom: '~@/assets/images/chatRoom';
+.botContainer {
+  display: flex;
+  :global {
+    .sectionLeft {
+      width: 46px;
+    }
+    .sectionRight {
+      width: 100%;
+      .botName {
+        height: 21px;
+        color: #4A4A4A;
+        font-size: 11px;
+      }
+      .botCon {
+        display: inline-block;
+        max-width: 253px;
+        padding: 15px;
+        background-color: #fff;
+        border-radius: 0 10px 10px 10px 10px;
+        word-wrap: break-word;
+        word-break: break-word;
+        .text {
+          color: #4A4A4A;
+          font-size: 14px;
+        }
+        .img {
+          overflow: hidden;
+          width: 150px;
+          height: 150px;
+          border-radius: 4px;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+}

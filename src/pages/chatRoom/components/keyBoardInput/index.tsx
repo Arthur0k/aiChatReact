@@ -1,30 +1,42 @@
+import React, {
+  forwardRef,
+  useState,
+  useImperativeHandle,
+  useRef,
+} from 'react';
 import styles from './index.less';
+import EmojiList from './emojiList';
+import MoreAction from './moreAction';
+import TextAreaItem from './textareaItem';
 
-const KeyBoardInput = (props) => {
-  const onInput = (e) => {
-    if (e.target.value.length == 22 || 35)
-    e.target.style.height = 'auto'
-  }
-  const onFocus = () => {}
-  const onBlur = (e) => {
-    e.target.style.height = '41px'
-  }
+interface KeyBoardInputProps {}
+
+const KeyBoardInput = (props: KeyBoardInputProps, ref) => {
+  const [moreActionActive, setMoreActionSwitch] = useState(false);
+  const [emojiListActive, setEmojiListSwitch] = useState(false);
+  const TextAreaItemRef: any = useRef(null);
+
+  useImperativeHandle(ref, () => ({
+    closeEmojiListOrMoreAction: () => {
+      setMoreActionSwitch(false);
+      setEmojiListSwitch(false);
+      TextAreaItemRef.current.setIconType('smile');
+    },
+  }));
+
   return (
     <div className={styles.keyBoardInput}>
-      <div className="inputCon">
-        <textarea
-          className="textarea"
-          placeholder="请用一句话描述您的问题"
-          onInput={onInput}
-          onFocus={onFocus}
-          onBlur={onBlur}
-        />
-        <div className="rightBtn"></div>
-      </div>
-      <div className="moreAction"></div>
-      <div className="placeholder"></div>
+      <TextAreaItem
+        ref={TextAreaItemRef}
+        moreActionActive={moreActionActive}
+        emojiListActive={emojiListActive}
+        setMoreActionSwitch={setMoreActionSwitch}
+        setEmojiListSwitch={setEmojiListSwitch}
+      />
+      {moreActionActive && <MoreAction />}
+      {emojiListActive && <EmojiList />}
     </div>
   );
 };
 
-export default KeyBoardInput;
+export default forwardRef(KeyBoardInput);
